@@ -1,0 +1,13 @@
+.register {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 15%;
+  }
+  .register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
