@@ -14,7 +14,7 @@ export const fetchAllProducts = async () =>  {
       if (result.error) {
         throw result.error;
       }
-      return result.books;
+      return result;
     } catch (error) {
       console.error("There was an error /GET books", error);
     }
