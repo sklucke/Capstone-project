@@ -1,23 +1,33 @@
 .navbar-container {
-    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    color: white white;
+    background-color: #333;
+    color:#fff;
 }
 
-.nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display:flex
+.links {
+    display: flex;
+    margin-left: auto;
 }
 
 .nav-link {
+    color: #fff;
     text-decoration: none;
-    color: white;
-    cursor: pointer;
-    margin-right: 20px;
+    font-size: 1.2rem;
+    margin-left: 20px;
 }
 
 .nav-link:hover {
-    text-decoration: underline;
+    color: #00bcd4;
+}
+
+.logout-button {
+    background-color: yellow;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    cursor:  pointer;
+    margin-left: 20px;
 }

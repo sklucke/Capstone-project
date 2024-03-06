@@ -19,3 +19,14 @@ export const fetchAllProducts = async () =>  {
       console.error("There was an error /GET books", error);
     }
   };
+
+
+  export const getSingleProduct = async (id) => {
+    try {
+        const response = await fetch(`${APIURL}/${id}`);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("There was an error /GET single product", error);
+    }
+  }

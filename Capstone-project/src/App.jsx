@@ -5,8 +5,8 @@ import AllProducts from "./components/AllProducts";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import NavBar from "./components/NavBar";
-import { fetchAllProducts } from "./api";
-
+import { fetchAllProducts, getSingleProduct } from "./api"
+import SingleProduct from "./components/SingleProduct";
 
 
 function App() {
@@ -32,11 +32,14 @@ function App() {
   }, [token]);
   return (
     <div>
-      <NavBar/>
+      <NavBar token={token} setToken={setToken}/>
       <Routes>
       <Route path="/SignUp" element={<SignUp setToken={setToken} />} />
       <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/" element={<AllProducts products={products} />} />
+        <Route path="/:productId" element={<SingleProduct />} />
+
+        
       </Routes>
         
     </div>
