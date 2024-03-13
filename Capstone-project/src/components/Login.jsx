@@ -1,10 +1,11 @@
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
  import "./Login.css"
+ import { getAllUsers, getUserCart } from "../api";
 
 
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, setUser, setCart }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -18,6 +19,8 @@ const Login = ({ setToken }) => {
   
     const handleSubmit = async (event) => {
       event.preventDefault();
+      const user = await getAllUsers(username);
+      const usersCart = await getUserCart(user.id);
       try {
         const response = await fetch(
           "https://fakestoreapi.com/auth/login",
@@ -37,7 +40,8 @@ const Login = ({ setToken }) => {
       } catch (error) {
         console.error("There was an error POST login", error);
       }
-  
+      setUser(user);
+      setCart(usersCart);
       setUsername("");
       setPassword("");
       navigate("/");
