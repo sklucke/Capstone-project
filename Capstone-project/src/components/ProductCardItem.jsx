@@ -5,24 +5,26 @@ import { addProductToCart } from "../api";
 
 
 
-const ProductCardItem = ({product, isSingle, token}) => {
+const ProductCardItem = ({product, isSingle, cart, setCart, token}) => {
+    console.log("cart", cart)
     const navigate = useNavigate()
     const handleViewItemClick = () => {
         navigate(`/${product.id}`);
     }
-     const handleAddToCart = async () => {
-        const today = new Date()
-        try {
-            const  result = await addProductToCart ({
-                userId:token,
-                    date: today.toLocaleDateString('en-CA'),
-                    products:[{productId:product.id,quantity:1}]
-            })
-            return result
-        } catch (error) {
-            console.error("There was an error/ ADD Cart", error);
+     
+        const handleAddToCart = () => {
+            const productId = product.id;
+            const existingCartItemIndex = cart.findIndex((item) => item.productId === productId)
+            if (existingCartItemIndex !== -1) {
+                const updatedCart = [...cart];
+                updatedCart[existingCartItemIndex].quantity += 1;
+                setCart(updatedCart);
+            } else {
+                const newItem = {productId, quantity: 1};
+                setCart((prevCart) => [...prevCart, newItem])
+            }
         }
-     }
+     
     return (
         <div className="card">
             <img src={product.image} alt={product.title} className="card-image" />

@@ -9,7 +9,7 @@ const NavBar = ({ token, setToken }) => {
   };
   return (
     <nav className="navbar-container">
-      <div>
+      
         <div>
           <h1>Capstone</h1>
         </div>
@@ -33,7 +33,7 @@ const NavBar = ({ token, setToken }) => {
             </Link>
           )}
         </div>
-      </div>
+      
     </nav>
   );
 };

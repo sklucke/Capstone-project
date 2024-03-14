@@ -3,7 +3,7 @@ import { getSingleProduct } from "../api";
 import { useParams } from "react-router-dom";
 import ProductCardItem from "./ProductCardItem";
 
-const SingleProduct = ({token}) => {
+const SingleProduct = ({cart,setCart}) => {
     const [product, setProduct] =useState(null);
     const {productId} =useParams();
 
@@ -18,7 +18,7 @@ const SingleProduct = ({token}) => {
     if (!product) {
         return <h1>Loading.....</h1>;
     }
-    return <ProductCardItem product={product} isSingle token = {token} />;
+    return <ProductCardItem product={product} isSingle cart={cart} setCart={setCart} />;
 
 } 
 
