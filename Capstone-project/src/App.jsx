@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import { fetchAllProducts, getSingleProduct } from "./api";
 import SingleProduct from "./components/SingleProduct";
 import ProductCardItem from "./components/ProductCardItem";
+import CheckoutPage from "./components/CheckoutPage";
 import Cart from "./components/Cart";
 
 function App() {
@@ -62,7 +63,11 @@ function App() {
           path="/cart"
           element={<Cart cart={cart} products={products} setCart={setCart} />}
         />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        
+        
       </Routes>
+      
     </div>
   );
 }
