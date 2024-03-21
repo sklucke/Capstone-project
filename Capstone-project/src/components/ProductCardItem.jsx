@@ -2,6 +2,7 @@ import React from "react"
 import "./ProductCardItem.css"
 import { useNavigate } from "react-router-dom";
 import { addProductToCart } from "../api";
+import { addCartItem } from "../utils/helpers";
 
 
 
@@ -14,15 +15,8 @@ const ProductCardItem = ({product, isSingle, cart, setCart, token}) => {
      
         const handleAddToCart = () => {
             const productId = product.id;
-            const existingCartItemIndex = cart.findIndex((item) => item.productId === productId)
-            if (existingCartItemIndex !== -1) {
-                const updatedCart = [...cart];
-                updatedCart[existingCartItemIndex].quantity += 1;
-                setCart(updatedCart);
-            } else {
-                const newItem = {productId, quantity: 1};
-                setCart((prevCart) => [...prevCart, newItem])
-            }
+            setCart((prevCart) => addCartItem(prevCart, productId));
+            
         }
      
     return (

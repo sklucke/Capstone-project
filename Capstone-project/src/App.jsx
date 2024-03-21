@@ -10,6 +10,8 @@ import SingleProduct from "./components/SingleProduct";
 import ProductCardItem from "./components/ProductCardItem";
 import CheckoutPage from "./components/CheckoutPage";
 import Cart from "./components/Cart";
+import Categories from "./components/Categories";
+import CategoriesDropdown from "./components/CategoriesDropdown";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -40,10 +42,11 @@ function App() {
       localStorage.removeItem("user");
       localStorage.removeItem("cart");
     }
-  }, [token]);
+  }, [token, cart, user]);
   return (
     <div>
       <NavBar token={token} setToken={setToken} />
+      <CategoriesDropdown/>
       <Routes>
         <Route path="/SignUp" element={<SignUp setToken={setToken} />} />
         <Route
@@ -64,6 +67,7 @@ function App() {
           element={<Cart cart={cart} products={products} setCart={setCart} />}
         />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/categories/:categoryItem" element={<Categories products={products} setCart={setCart} cart={cart} />} />
         
         
       </Routes>
