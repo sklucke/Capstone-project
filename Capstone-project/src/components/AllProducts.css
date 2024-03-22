@@ -1,0 +1,6 @@
+.main-containers {
+    display:flex;
+    width: 120%;
+    flex-wrap: wrap;
+
+}

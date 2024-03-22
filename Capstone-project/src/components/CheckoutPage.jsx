@@ -21,6 +21,7 @@ const CheckoutPage = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    window.alert("Your order is Placed !")
   };
 
   return (
