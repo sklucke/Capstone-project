@@ -5,6 +5,8 @@
     display: inline-block;
     margin: 20px;
     padding: 20px;
+    flex-wrap: wrap;
+    
 }
 
 .card-image {
